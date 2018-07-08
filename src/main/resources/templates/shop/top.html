@@ -5,6 +5,20 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>Top.html</h1>
+	<h1 align="center">ECTOP</h1>
+	<div class="searchresults">
+		<div class="searchresultproducts">
+			<div class="products info" th:each="product : ${products}">
+				<div class="image">
+						<img class="_verticallyaligned" src="https://tshop.r10s.jp/jukusui/cabinet/samune/kitchen-goods/434-12643_sam1.jpg?fitin=200:200">
+				</div>
+				<div class="product info">
+					<p><span th:text='${product.id}'/><p>
+ 					<p><span th:text='${product.name}'/><p>
+ 					<p><span th:text='${product.price}'/>円<p>
+				</div>
+			</div>
+		</div>
+	 </div>
 </body>
 </html>

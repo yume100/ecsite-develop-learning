@@ -1,10 +1,15 @@
 package com.example.ecsitedeveloplearning.ec.shop.web;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
+import com.example.domain.Employee;
 import com.example.ecsitedeveloplearning.ec.shop.service.ShopService;
 
 @Controller
@@ -15,10 +20,12 @@ public class ShopController {
 	private ShopService shopService;
 	
 	// Top Page
-	@GetMapping("/top")
+	@RequestMapping(value = "/top", method = RequestMethod.GET)
 	public String viewIndex() {
-		System.out.println("viewIndex");
-		return "shop/top";
+		List<Product> products = shopService.findAll();
+		ModelAndView mv = new ModelAndView("shop/top");
+		mv.addObject("products", products);
+		return mv;
 	}
 	
 
