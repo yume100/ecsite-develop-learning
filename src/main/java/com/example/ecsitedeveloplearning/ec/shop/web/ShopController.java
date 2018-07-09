@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.example.domain.Employee;
+import com.example.ecsitedeveloplearning.ec.shop.model.Product;
 import com.example.ecsitedeveloplearning.ec.shop.service.ShopService;
 
 @Controller
@@ -21,7 +21,7 @@ public class ShopController {
 	
 	// Top Page
 	@RequestMapping(value = "/top", method = RequestMethod.GET)
-	public String viewIndex() {
+	public ModelAndView viewIndex() {
 		List<Product> products = shopService.findAll();
 		ModelAndView mv = new ModelAndView("shop/top");
 		mv.addObject("products", products);
