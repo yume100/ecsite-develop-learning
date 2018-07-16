@@ -28,9 +28,8 @@ public class Product {
     @Column(name = "name")
     private String name;
     
-    @ManyToOne
-    @JoinColumn(name = "category_id")
-    private Category categoryId;
+    @Column(name = "category_id")
+    private String categoryId;
     
     @Column(name = "price")
     private Integer price;
@@ -41,11 +40,9 @@ public class Product {
     @Column(name = "image_path")
     private String imagePath;
     
-    @Temporal(TemporalType.TIMESTAMP)
    @Column(name = "created", nullable = false)
     private Date created;
     
-    @Temporal(TemporalType.TIMESTAMP)
    @Column(name = "updated", nullable = true)
     private Date updated;
 
